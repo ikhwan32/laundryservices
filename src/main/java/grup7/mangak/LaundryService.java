@@ -38,6 +38,7 @@ public class LaundryService extends PearlService {
         double charge = 0.00;
         
         if(getType().equalsIgnoreCase("Normal Cleaning"))
+        {
             charge = 2.50 * quantity;
         else if(getType().equalsIgnoreCase("Dry Cleaning"))
         {
@@ -56,7 +57,7 @@ public class LaundryService extends PearlService {
             else if(getClothType().equalsIgnoreCase("Coat"))
             charge = 9 * quantity;
         }
-        
+        }
         return charge;        
     }  
     

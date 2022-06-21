@@ -19,12 +19,12 @@ public class Mangak {
         
         Scanner input = new Scanner(System.in);
         
-        System.out.print("Enter Size of array for fuck :");
-        int size2 = input.nextInt();
+        System.out.print("Enter Size of array for Maid Service :");
+        int maidSize = input.nextInt();
 
-        MaidService[] test2 = new MaidService[size2];
+        MaidService[] test2 = new MaidService[maidSize];
         
-        for(int i=0; i<size2; i++)
+        for(int i=0; i<maidSize; i++)
         {
         System.out.println("Please enter Customer Name, IC number, and Phone Number");
         String custName = input.next();
@@ -40,7 +40,7 @@ public class Mangak {
         test2[i] = new MaidService(custName, IC, phoneNum, dailyMaidPackage, numOfDays);
         }            
         
-        for(int i=0; i<size2; i++)
+        for(int i=0; i<maidSize; i++)
         {
             System.out.println(test2[i].toString());
             
