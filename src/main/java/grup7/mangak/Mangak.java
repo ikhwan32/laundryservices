@@ -22,7 +22,11 @@ public class Mangak {
         System.out.print("Enter Size of array for Maid Service :");
         int maidSize = input.nextInt();
 
+        System.out.print("Enter Size of array for Laundry Service :");
+        int laundrySize = input.nextInt();        
+        
         MaidService[] test2 = new MaidService[maidSize];
+        LaundryService[] laundry = new LaundryService[laundrySize];
         
         for(int i=0; i<maidSize; i++)
         {
@@ -39,6 +43,27 @@ public class Mangak {
         
         test2[i] = new MaidService(custName, IC, phoneNum, dailyMaidPackage, numOfDays);
         }            
+
+        for(int i=0; i<laundrySize; i++)
+        {
+        System.out.println("Please enter Customer Name, IC number, and Phone Number");
+        String custName = input.next();
+        String IC = input.next();
+        String phoneNum = input.next();
+        
+        System.out.println("Please Enter Laundry Service Package( Normal / Dry )");
+        String type = input.next();
+
+        input.nextLine();
+        
+        System.out.println("Please Enter Cloth Type (Baju Kurung/Melayu, Blazer, Jacket/Coat)");
+        String clothType = input.nextLine();            
+        
+        System.out.println("Please Enter Quantity");
+        int quantity = input.nextInt();        
+        
+        laundry[i] = new LaundryService(custName, IC, phoneNum, type, clothType, quantity);
+        }
         
         for(int i=0; i<maidSize; i++)
         {
@@ -46,6 +71,12 @@ public class Mangak {
             
         }
 
+        for(int i=0; i<laundrySize; i++)
+        {
+            System.out.println(laundry[i].toString());
+            
+        }        
+        
         
     }
 }
