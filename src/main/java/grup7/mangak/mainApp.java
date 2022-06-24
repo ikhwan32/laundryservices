@@ -13,7 +13,7 @@ package grup7.mangak;
 import java.util.*;
 import java.text.*;
 
-public class Mangak {
+public class mainApp {
 
     public static void main(String[] args) {
         
@@ -27,6 +27,7 @@ public class Mangak {
         
         MaidService[] test2 = new MaidService[maidSize];
         LaundryService[] laundry = new LaundryService[laundrySize];
+        PearlService[] customers = new PearlService[1];
         
         for(int i=0; i<maidSize; i++)
         {
@@ -41,7 +42,7 @@ public class Mangak {
         System.out.println("Please Enter Days");
         int numOfDays = input.nextInt();        
         
-        test2[i] = new MaidService(custName, IC, phoneNum, dailyMaidPackage, numOfDays);
+        customers[i] = new MaidService(custName, IC, phoneNum, dailyMaidPackage, numOfDays);
         }            
 
         for(int i=0; i<laundrySize; i++)
@@ -67,7 +68,7 @@ public class Mangak {
         
         for(int i=0; i<maidSize; i++)
         {
-            System.out.println(test2[i].toString());
+            System.out.println(customers[i].toString());
             
         }
 
