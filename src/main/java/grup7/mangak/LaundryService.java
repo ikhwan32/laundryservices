@@ -43,6 +43,7 @@ public class LaundryService extends PearlService {
         }
         else if(getType().equalsIgnoreCase("Dry"))
         {
+            
             if(getClothType().equalsIgnoreCase("Baju Kurung"))
             charge = 8 * quantity;
             
@@ -55,20 +56,29 @@ public class LaundryService extends PearlService {
             else if(getClothType().equalsIgnoreCase("Jacket"))
             charge = 9 * quantity;
             
-            else if(getClothType().equalsIgnoreCase("Coat"))
+            else if(getClothType().equalsIgnoreCase("Coat")) {
             charge = 9 * quantity;
+            }
+            
+            dryClean += charge;
         }
         
         return charge;        
     }  
     
+    
+    public String getDryClean() {
+        dryClean = 2;
+        return ("\n\t\t\tCustomer Name = " + dryClean    );
+    }
+    
     public String toString(){
-        return ("Customer Name = " + custName +
-             "\nIC Number = " + IC +
-             "\nPhone Number = " + phoneNum +
-             "\nLaundry Type = " + type +
-             "\nCloth Quantity = " + quantity +
-             "\nFee = RM " + calculateCharge()    );
+        return ("\n\t\t\tCustomer Name = " + custName +
+             "\n\t\t\tIC Number = " + IC +
+             "\n\t\t\tPhone Number = " + phoneNum +
+             "\n\t\t\tLaundry Type = " + type +
+             "\n\t\t\tCloth Quantity = " + quantity +
+             "\n\t\t\tFee = RM " + calculateCharge()    );
     
     }  
     

@@ -12,6 +12,7 @@ public abstract class PearlService {
     protected String custName;
     protected String IC;
     protected String phoneNum;
+    protected double dryClean = 0;
     
     //default constructor
     public PearlService(String custName, String IC, String phoneNum) {
@@ -43,6 +44,9 @@ public abstract class PearlService {
     
     }
     
+    public String getDryClean() {
+        return ("\n\t\t\tCustomer Name = " + dryClean    );
+    }
     
 }
   

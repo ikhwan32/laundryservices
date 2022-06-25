@@ -40,13 +40,20 @@ public class MaidService extends PearlService {
         return charge;
         
     }
+    
+    public void getHighest() {
+        
+        calculateCharge();
+        
+    }
+    
     public String toString(){
-        return ("Customer Name = " + custName +
-             "\nIC Number = " + IC +
-             "\nPhone Number = " + phoneNum +
-             "\nDaily Maid Package = " + dailyMaidPackage +
-             "\nNum of Days = " + numOfDays +
-             "\nFee = RM " + calculateCharge()    );
+        return ("\n\t\t\tCustomer Name = " + custName +
+             "\n\t\t\tIC Number = " + IC +
+             "\n\t\t\tPhone Number = " + phoneNum +
+             "\n\t\t\tDaily Maid Package = " + dailyMaidPackage +
+             "\n\t\t\tNum of Days = " + numOfDays +
+             "\n\t\t\tFee = RM " + calculateCharge()    );
     
     }    
 }
