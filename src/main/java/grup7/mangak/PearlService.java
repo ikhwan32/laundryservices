@@ -12,7 +12,7 @@ public abstract class PearlService {
     protected String custName;
     protected String IC;
     protected String phoneNum;
-    protected double dryClean = 0;
+    private String type;
     
     //default constructor
     public PearlService(String custName, String IC, String phoneNum) {
@@ -36,6 +36,8 @@ public abstract class PearlService {
     //call calculateCharge
     public abstract double calculateCharge();
     
+    public String getType() {return type; }
+    
     //display
     public String toString(){
         return "Customer Name = " + custName +
@@ -43,10 +45,5 @@ public abstract class PearlService {
              "\nPhone Number = " + phoneNum  ;
     
     }
-    
-    public String getDryClean() {
-        return ("\n\t\t\tCustomer Name = " + dryClean    );
-    }
-    
 }
   

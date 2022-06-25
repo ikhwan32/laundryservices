@@ -59,18 +59,14 @@ public class LaundryService extends PearlService {
             else if(getClothType().equalsIgnoreCase("Coat")) {
             charge = 9 * quantity;
             }
-            
-            dryClean += charge;
+
         }
         
         return charge;        
     }  
     
     
-    public String getDryClean() {
-        dryClean = 2;
-        return ("\n\t\t\tCustomer Name = " + dryClean    );
-    }
+
     
     public String toString(){
         return ("\n\t\t\tCustomer Name = " + custName +

@@ -129,12 +129,16 @@ public class mainApp {
                             
             else if(choice == 3) {
                 
+                double dryTotal = 0.0;
                  for(int i=0; i<custTotal; i++)
                 {
-                    System.out.println(customers[i].getDryClean());
-                    
+                    if (customers[i].getType().equalsIgnoreCase("Dry")) {
+                        dryTotal += customers[i].calculateCharge();
+                    }
                 }
-                
+                 
+                System.out.print("\t\t\tTotal charges for Dry Cleaning is RM"); 
+                System.out.println(dryTotal);
                 clrscr();
             }
             
@@ -168,11 +172,11 @@ public class mainApp {
                    }                    
                 }
                 
-                System.out.println("\t\t\tCustome with Highest Charge info");
+                System.out.println("\t\t\tCustomer with Highest Charge info");
                 System.out.println("\t\t\t******************************************");
                 System.out.println(customers[custHighest].toString());
                 System.out.println("\t\t\t******************************************");
-                System.out.println("\t\t\tCustome with Lowest Charge info");
+                System.out.println("\t\t\tCustomer with Lowest Charge info");
                 System.out.println("\t\t\t******************************************");
                 System.out.println(customers[custLowest].toString());
                 System.out.println("\t\t\t******************************************\n");

@@ -41,11 +41,6 @@ public class MaidService extends PearlService {
         
     }
     
-    public void getHighest() {
-        
-        calculateCharge();
-        
-    }
     
     public String toString(){
         return ("\n\t\t\tCustomer Name = " + custName +
