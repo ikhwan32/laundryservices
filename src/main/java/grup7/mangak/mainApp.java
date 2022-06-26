@@ -57,7 +57,7 @@ public class mainApp {
             int choice = input.nextInt(); 
             input.nextLine();
             
-            if(choice == 1) {
+            if( choice == 1) {
                 if(custTotal == customers.length)
                 {
                    System.out.println("\n\n\n\t\t\tThe storage limit has been reached! Please contact the IT Department.\n\n\n");
@@ -183,6 +183,37 @@ public class mainApp {
                 
                 clrscr();  
             }            
+            
+            else if(choice == 6) {
+                
+                System.out.println("\t\t\tCustomer Database");
+                System.out.println("\t\t\t******************************************");
+                
+                System.out.print("\t\t\tPlease enter Customer Name >>> ");
+                String custName = input.nextLine();
+
+                System.out.print("\t\t\tPlease enter Customer's IC number >>> ");
+                String IC = input.nextLine();
+                    
+                System.out.print("\t\t\tPlease enter Customer's phone number >>> ");
+                String phoneNum = input.nextLine();                
+                
+                for(int i=0; i<custTotal; i++)
+                {     
+                    if(customers[i].getCustName().equalsIgnoreCase(custName) || customers[i].getIC().equalsIgnoreCase(IC) || customers[i].getPhoneNum().equalsIgnoreCase(phoneNum)  ) {
+                        System.out.println(customers[i].toString());
+                     }
+                
+                System.out.println("\t\t\t******************************************");
+                System.out.println("\t\t\tResult");
+                System.out.println("\t\t\t******************************************");
+
+                System.out.println("\t\t\t******************************************\n");
+                }
+                
+                clrscr();
+                
+            }
             
             else if(choice == 7) {
                  	System.out.println("\n\n\n\t\t\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");

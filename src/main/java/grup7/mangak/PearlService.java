@@ -35,7 +35,6 @@ public abstract class PearlService {
     
     //call calculateCharge
     public abstract double calculateCharge();
-    
     public String getType() {return type; }
     
     //display
