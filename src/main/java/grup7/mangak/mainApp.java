@@ -30,14 +30,12 @@ public class mainApp {
 	{
 		System.out.println("\t\t\tPEARL SERVICE CUSTOMER MANAGEMENT SYSTEM");
 		System.out.println("\t\t\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-		System.out.println("\n\t\t\t1. Store new maid service customer data");
-		System.out.println("\t\t\t2. Store new laundry service customer data");
-		System.out.println("\t\t\t3. Display total charges for dry cleaning services");
-                                    System.out.println("\t\t\t4. Display all customer's data");
-		System.out.println("\t\t\t5. Display customer's data with highest and lowest charges");
-                                    System.out.println("\t\t\t6. Search customer's data");
-		System.out.println("\t\t\t7. Exit");
-                                    System.out.println("\t\t\t8. Store new customer data(experimental)");
+		System.out.println("\n\t\t\t1. Store new customer data");
+		System.out.println("\t\t\t2. Display total charges for dry cleaning services");
+                                    System.out.println("\t\t\t3. Display all customer's data");
+		System.out.println("\t\t\t4. Display customer's data with highest and lowest charges");
+                                    System.out.println("\t\t\t5. Search customer's data");
+		System.out.println("\t\t\t6. Exit");
 		System.out.print("\n\t\t\tPlease input your choice >> ");
 	}
 
@@ -64,171 +62,6 @@ public class mainApp {
                    System.out.println("\n\n\n\t\t\tThe storage limit has been reached! Please contact the IT Department.\n\n\n");
                    clrscr(); 
                 }
-                else
-                {
-                    
-                    System.out.println("\n\n\t\t\tMaid Service Customer");
-                    System.out.println("\t\t\t****************************\n");
-                    
-                    System.out.print("\t\t\tPlease enter Customer Name >>> ");
-                    String custName = input.next();
-                    
-                    System.out.print("\t\t\tPlease enter Customer's IC number >>> ");
-                    String IC = input.next();
-                    
-                    System.out.print("\t\t\tPlease enter Customer's phone number >>> ");
-                    String phoneNum = input.next();
-        
-                    System.out.print("\t\t\tPlease Enter Maid Service Package( A / B ) >>> ");
-                    char dailyMaidPackage = input.next().charAt(0);
-        
-                    System.out.print("\t\t\tPlease Enter Day >>> ");
-                    int numOfDays = input.nextInt();        
-        
-                    customers[custTotal] = new MaidService(custName, IC, phoneNum, dailyMaidPackage, numOfDays);
-                    custTotal++;
-                    System.out.print("\n\t\t\t<< Data Stored Successfully >> ");
-                    clrscr();
-                }            
-            }
-            
-            else if(choice == 2) {
-                if(custTotal == customers.length)
-                {
-                   System.out.println("\n\n\n\t\t\tThe storage limit has been reached! Please contact the IT Department.\n\n\n");
-                   clrscr(); 
-                }
-                
-                else
-                {
-                    System.out.print("\n\t\t\tPlease enter Customer Name >>> ");
-                    String custName = input.next();
-                    
-                    System.out.print("\t\t\tPlease enter Customer's IC number >>> ");
-                    String IC = input.next();
-                    
-                    System.out.print("\t\t\tPlease enter Customer's phone number >>> ");
-                    String phoneNum = input.next();
-        
-                    System.out.print("\t\t\tPlease Enter Laundry Service Package( Normal / Dry ) >>> ");
-                    String type = input.next();
-
-                    input.nextLine();
-        
-                    System.out.print("\t\t\tPlease Enter Cloth Type if neccessary (Baju Kurung/Melayu, Blazer, Jacket/Coat / Enter if not neccessary) >>> ");
-                    String clothType = input.nextLine();            
-        
-                    System.out.print("\t\t\tPlease Enter Quantity >>> ");
-                    int quantity = input.nextInt();        
-        
-                    customers[custTotal] = new LaundryService(custName, IC, phoneNum, type, clothType, quantity);
-                    custTotal++;
-                    System.out.print("\n\t\t\t<< Data Stored Successfully >> ");
-                    clrscr();
-                }
-            }
-                            
-            else if(choice == 3) {
-                
-                double dryTotal = 0.0;
-                 for(int i=0; i<custTotal; i++)
-                {
-                    if (customers[i].getType().equalsIgnoreCase("Dry")) {
-                        dryTotal += customers[i].calculateCharge();
-                    }
-                }
-                 
-                System.out.print("\t\t\tTotal charges for Dry Cleaning is RM"); 
-                System.out.println(dryTotal);
-                clrscr();
-            }
-            
-            else if(choice == 4) {
-                 for(int i=0; i<custTotal; i++)
-                {
-                    System.out.println(customers[i].toString());
-                    
-                }
-                clrscr();  
-            }
-            
-            else if(choice == 5) {
-                
-                double highestCharge = 0;
-                double lowestCharge = 999999;
-                int custLowest = 999999;
-                int custHighest = 0;
-                
-                
-                for(int i=0; i<custTotal; i++)
-                {                      
-                   if(customers[i].calculateCharge() > highestCharge) {                       
-                       highestCharge = customers[i].calculateCharge();        
-                       custHighest = i;
-                   }
-                   
-                   if(customers[i].calculateCharge() < lowestCharge) {                       
-                       lowestCharge = customers[i].calculateCharge();      
-                       custLowest = i;
-                   }                    
-                }
-                
-                System.out.println("\t\t\tCustomer with Highest Charge info");
-                System.out.println("\t\t\t******************************************");
-                System.out.println(customers[custHighest].toString());
-                System.out.println("\t\t\t******************************************");
-                System.out.println("\t\t\tCustomer with Lowest Charge info");
-                System.out.println("\t\t\t******************************************");
-                System.out.println(customers[custLowest].toString());
-                System.out.println("\t\t\t******************************************\n");
-                
-                clrscr();  
-            }            
-            
-            else if(choice == 6) {
-                
-                System.out.println("\t\t\tCustomer Database");
-                System.out.println("\t\t\t******************************************");
-                
-                System.out.print("\t\t\tPlease enter Customer Name >>> ");
-                String custName = input.nextLine();
-
-                System.out.print("\t\t\tPlease enter Customer's IC number >>> ");
-                String IC = input.nextLine();
-                    
-                System.out.print("\t\t\tPlease enter Customer's phone number >>> ");
-                String phoneNum = input.nextLine();                
-                
-                for(int i=0; i<custTotal; i++)
-                {     
-                    if(customers[i].getCustName().equalsIgnoreCase(custName) || customers[i].getIC().equalsIgnoreCase(IC) || customers[i].getPhoneNum().equalsIgnoreCase(phoneNum)  ) {
-                        System.out.println(customers[i].toString());
-                     }
-                
-                System.out.println("\t\t\t******************************************");
-                System.out.println("\t\t\tResult");
-                System.out.println("\t\t\t******************************************");
-
-                System.out.println("\t\t\t******************************************\n");
-                }
-                
-                clrscr();
-                
-            }
-            
-            else if(choice == 7) {
-                 	System.out.println("\n\n\n\t\t\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-	System.out.print("\t\t\tExiting.... ");
-	break;
-            }
-            
-             else if(choice == 8) {
-                if(custTotal == customers.length)
-                {
-                   System.out.println("\n\n\n\t\t\tThe storage limit has been reached! Please contact the IT Department.\n\n\n");
-                   clrscr(); 
-                }
-                
                 else
                 {
                     System.out.print("\n\t\t\tPlease enter Customer Name >>> ");
@@ -282,7 +115,99 @@ public class mainApp {
                             clrscr();
                         }
                     
+                }            
+            }
+                            
+            else if(choice == 2) {
+                
+                double dryTotal = 0.0;
+                 for(int i=0; i<custTotal; i++)
+                {
+                    if (customers[i].getType().equalsIgnoreCase("Dry")) {
+                        dryTotal += customers[i].calculateCharge();
+                    }
                 }
+                 
+                System.out.print("\t\t\tTotal charges for Dry Cleaning is RM"); 
+                System.out.println(dryTotal);
+                clrscr();
+            }
+            
+            else if(choice == 3) {
+                 for(int i=0; i<custTotal; i++)
+                {
+                    System.out.println(customers[i].toString());
+                    
+                }
+                clrscr();  
+            }
+            
+            else if(choice == 4) {
+                
+                double highestCharge = 0;
+                double lowestCharge = 999999;
+                int custLowest = 999999;
+                int custHighest = 0;
+                
+                
+                for(int i=0; i<custTotal; i++)
+                {                      
+                   if(customers[i].calculateCharge() > highestCharge) {                       
+                       highestCharge = customers[i].calculateCharge();        
+                       custHighest = i;
+                   }
+                   
+                   if(customers[i].calculateCharge() < lowestCharge) {                       
+                       lowestCharge = customers[i].calculateCharge();      
+                       custLowest = i;
+                   }                    
+                }
+                
+                System.out.println("\t\t\tCustomer with Highest Charge info");
+                System.out.println("\t\t\t******************************************");
+                System.out.println(customers[custHighest].toString());
+                System.out.println("\t\t\t******************************************");
+                System.out.println("\t\t\tCustomer with Lowest Charge info");
+                System.out.println("\t\t\t******************************************");
+                System.out.println(customers[custLowest].toString());
+                System.out.println("\t\t\t******************************************\n");
+                
+                clrscr();  
+            }            
+            
+            else if(choice == 5) {
+                
+                System.out.println("\n\t\t\tCustomer Database");
+                System.out.println("\t\t\t******************************************");
+                
+                System.out.print("\t\t\tPlease enter Customer Name >>> ");
+                String custName = input.nextLine();
+
+                System.out.print("\t\t\tPlease enter Customer's IC number >>> ");
+                String IC = input.nextLine();
+                    
+                System.out.print("\t\t\tPlease enter Customer's phone number >>> ");
+                String phoneNum = input.nextLine();                
+                
+                System.out.println("\t\t\t******************************************");
+                System.out.println("\t\t\tResult");
+                System.out.println("\t\t\t******************************************");
+                for(int i=0; i<custTotal; i++)
+                {     
+                    if(customers[i].getCustName().equalsIgnoreCase(custName) || customers[i].getIC().equalsIgnoreCase(IC) || customers[i].getPhoneNum().equalsIgnoreCase(phoneNum)  ) {
+                        System.out.println(customers[i].toString());
+                     }
+                System.out.println("\t\t\t******************************************\n");
+                }
+                
+                clrscr();
+                
+            }
+            
+            else if(choice == 6) {
+                 	System.out.println("\n\n\n\t\t\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+	System.out.print("\t\t\tExiting.... ");
+	break;
             }
             
             else {
