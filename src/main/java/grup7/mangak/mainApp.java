@@ -37,6 +37,7 @@ public class mainApp {
 		System.out.println("\t\t\t5. Display customer's data with highest and lowest charges");
                                     System.out.println("\t\t\t6. Search customer's data");
 		System.out.println("\t\t\t7. Exit");
+                                    System.out.println("\t\t\t8. Store new customer data(experimental)");
 		System.out.print("\n\t\t\tPlease input your choice >> ");
 	}
 
@@ -100,7 +101,7 @@ public class mainApp {
                 
                 else
                 {
-                    System.out.print("\t\t\tPlease enter Customer Name >>> ");
+                    System.out.print("\n\t\t\tPlease enter Customer Name >>> ");
                     String custName = input.next();
                     
                     System.out.print("\t\t\tPlease enter Customer's IC number >>> ");
@@ -219,6 +220,69 @@ public class mainApp {
                  	System.out.println("\n\n\n\t\t\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 	System.out.print("\t\t\tExiting.... ");
 	break;
+            }
+            
+             else if(choice == 8) {
+                if(custTotal == customers.length)
+                {
+                   System.out.println("\n\n\n\t\t\tThe storage limit has been reached! Please contact the IT Department.\n\n\n");
+                   clrscr(); 
+                }
+                
+                else
+                {
+                    System.out.print("\n\t\t\tPlease enter Customer Name >>> ");
+                    String custName = input.next();
+                    
+                    System.out.print("\t\t\tPlease enter Customer's IC number >>> ");
+                    String IC = input.next();
+                    
+                    System.out.print("\t\t\tPlease enter Customer's phone number >>> ");
+                    String phoneNum = input.next();
+        
+                    System.out.print("\t\t\tPlease enter Customer's desired service >>> ");
+                    String serviceDesired = input.next();
+                    
+                    if(serviceDesired.equalsIgnoreCase("Maid")) {
+                        
+                        System.out.print("\t\t\tPlease Enter Maid Service Package( A / B ) >>> ");
+                        char dailyMaidPackage = input.next().charAt(0);
+        
+                        System.out.print("\t\t\tPlease Enter Day >>> ");
+                        int numOfDays = input.nextInt();        
+        
+                        customers[custTotal] = new MaidService(custName, IC, phoneNum, dailyMaidPackage, numOfDays);
+                        custTotal++;
+                        System.out.print("\n\t\t\t<< Data Stored Successfully >> ");
+                        clrscr();
+                        
+                    }
+                        else if(serviceDesired.equalsIgnoreCase("Laundry")) {
+                        
+                            System.out.print("\t\t\tPlease Enter Laundry Service Package( Normal / Dry ) >>> ");
+                            String type = input.next();
+
+                            input.nextLine();
+        
+                            System.out.print("\t\t\tPlease Enter Cloth Type if neccessary (Baju Kurung/Melayu, Blazer, Jacket/Coat / Enter if not neccessary) >>> ");
+                            String clothType = input.nextLine();            
+        
+                            System.out.print("\t\t\tPlease Enter Quantity >>> ");
+                            int quantity = input.nextInt();        
+        
+                            customers[custTotal] = new LaundryService(custName, IC, phoneNum, type, clothType, quantity);
+                            custTotal++;
+                            System.out.print("\n\t\t\t<< Data Stored Successfully >> ");
+                            clrscr();
+                            
+                    }
+                    
+                        else {
+                            System.out.print("\n\t\t\t<< WRONG INPUT! PLEASE REPEAT >> ");
+                            clrscr();
+                        }
+                    
+                }
             }
             
             else {
