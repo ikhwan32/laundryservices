@@ -1,11 +1,12 @@
-CSC186 Project
+# CSC186 Project
 Laundry And Maid Services 
 
 Group Members
-Ikhwan Hadi
-Aiman Rosani
-Syamil Haziq
-Wan Muhammad Amirul
+
+1. Ikhwan Hadi 
+2. Aiman Rosani
+3. Syamil Haziq
+4. Wan Muhammad Amirul
 
 FOR REFERENCES
 ------------------------------------------------------
