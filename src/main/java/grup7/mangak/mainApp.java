@@ -43,8 +43,8 @@ public class mainApp {
         
         Scanner input = new Scanner(System.in);
         
-        System.out.print("Enter total customer :");
-        int customerSize = input.nextInt();
+        //System.out.print("Enter total customer :"); //temp variable
+        int customerSize = 100;              //temp variable
 
         PearlService[] customers = new PearlService[customerSize];
         
@@ -73,7 +73,7 @@ public class mainApp {
                     System.out.print("\t\t\tPlease enter Customer's phone number >>> ");
                     String phoneNum = input.next();
         
-                    System.out.print("\t\t\tPlease enter Customer's desired service >>> ");
+                    System.out.print("\t\t\tPlease enter Customer's desired service (Maid / Laundry )>>> ");
                     String serviceDesired = input.next();
                     
                     if(serviceDesired.equalsIgnoreCase("Maid")) {
