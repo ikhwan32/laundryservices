@@ -37,6 +37,8 @@ public abstract class PearlService {
     public abstract double calculateCharge();
     public String getType() {return type; }
     
+    
+    
     //display
     public String toString(){
         return "Customer Name = " + custName +

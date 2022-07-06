@@ -28,7 +28,7 @@ public class MaidService extends PearlService {
     //accessor
     public char getDailyMaidPackage(){return dailyMaidPackage; }
     public int getNumOfDays(){return numOfDays; }
-    
+        
     //processor    
     public double calculateCharge(){
         double charge = 0.00;

@@ -8,12 +8,15 @@ package grup7.mangak;
 /**
  *
  * @author myPC
+ * only god know how this work so please don't ask us
  */
 
 import java.util.*;
 import java.text.*;
 import java.io.IOException;
 import java.util.Scanner;
+import java.io.PrintWriter;
+
 
 public class mainApp {
     
@@ -49,6 +52,7 @@ public class mainApp {
         PearlService[] customers = new PearlService[customerSize];
         
         int custTotal = 0;
+        double totalDryCharges = 0;
         
         for(;;) {
         
@@ -64,6 +68,7 @@ public class mainApp {
                 }
                 else
                 {
+                    
                     System.out.print("\n\t\t\tPlease enter Customer Name >>> ");
                     String custName = input.next();
                     
@@ -96,18 +101,32 @@ public class mainApp {
                             String type = input.next();
 
                             input.nextLine();
-        
-                            System.out.print("\t\t\tPlease Enter Cloth Type if neccessary (Baju Kurung/Melayu, Blazer, Jacket/Coat / Enter if not neccessary) >>> ");
-                            String clothType = input.nextLine();            
-        
-                            System.out.print("\t\t\tPlease Enter Quantity >>> ");
-                            int quantity = input.nextInt();        
-        
-                            customers[custTotal] = new LaundryService(custName, IC, phoneNum, type, clothType, quantity);
-                            custTotal++;
-                            System.out.print("\n\t\t\t<< Data Stored Successfully >> ");
-                            clrscr();
                             
+                            if(type.equalsIgnoreCase("Normal")) {
+                                System.out.print("\t\t\tPlease Enter Quantity >>> ");
+                                int quantity = input.nextInt();   
+                                
+                                customers[custTotal] = new LaundryService(custName, IC, phoneNum, type, "None", quantity);
+                                custTotal++;
+                                System.out.print("\n\t\t\t<< Data Stored Successfully >> ");
+                                clrscr();
+                            }
+                            
+                            else if(type.equalsIgnoreCase("Dry")) {
+                                System.out.print("\t\t\tPlease Enter Cloth Type if neccessary (Baju Kurung/Melayu, Blazer, Jacket/Coat ) >>> ");
+                                 String clothType = input.nextLine();            
+        
+                                System.out.print("\t\t\tPlease Enter Quantity >>> ");
+                                int quantity = input.nextInt();        
+        
+                                customers[custTotal] = new LaundryService(custName, IC, phoneNum, type, clothType, quantity);
+                                
+                                totalDryCharges += customers[custTotal].calculateCharge();
+                                
+                                custTotal++;
+                                System.out.print("\n\t\t\t<< Data Stored Successfully >> ");
+                                clrscr();
+                            }
                     }
                     
                         else {
@@ -119,17 +138,10 @@ public class mainApp {
             }
                             
             else if(choice == 2) {
-                
-                double dryTotal = 0.0;
-                 for(int i=0; i<custTotal; i++)
-                {
-                    if (customers[i].getType().equalsIgnoreCase("Dry")) {
-                        dryTotal += customers[i].calculateCharge();
-                    }
-                }
+
                  
                 System.out.print("\t\t\tTotal charges for Dry Cleaning is RM"); 
-                System.out.println(dryTotal);
+                System.out.println(totalDryCharges);
                 clrscr();
             }
             
@@ -177,7 +189,10 @@ public class mainApp {
             
             else if(choice == 5) {
                 
+                int totalSearch = 0;
+                
                 System.out.println("\n\t\t\tCustomer Database");
+                System.out.println("\t\t\tPress Enter if Not Related ");
                 System.out.println("\t\t\t******************************************");
                 
                 System.out.print("\t\t\tPlease enter Customer Name >>> ");
@@ -189,16 +204,25 @@ public class mainApp {
                 System.out.print("\t\t\tPlease enter Customer's phone number >>> ");
                 String phoneNum = input.nextLine();                
                 
-                System.out.println("\t\t\t******************************************");
+                System.out.println("\n\t\t\t******************************************");
                 System.out.println("\t\t\tResult");
-                System.out.println("\t\t\t******************************************");
+                System.out.println("\t\t\t******************************************\n");
                 for(int i=0; i<custTotal; i++)
                 {     
                     if(customers[i].getCustName().equalsIgnoreCase(custName) || customers[i].getIC().equalsIgnoreCase(IC) || customers[i].getPhoneNum().equalsIgnoreCase(phoneNum)  ) {
                         System.out.println(customers[i].toString());
+                        totalSearch++;
                      }
-                System.out.println("\t\t\t******************************************\n");
+
                 }
+                
+                if(totalSearch == 0) {
+                    System.out.println("\t\t\tNo Data found!");
+                    System.out.println("\t\t\t******************************************\n");
+                }
+                
+                else 
+                    System.out.println("\t\t\t******************************************\n");
                 
                 clrscr();
                 
@@ -209,7 +233,7 @@ public class mainApp {
 	System.out.print("\t\t\tExiting.... ");
 	break;
             }
-            
+                        
             else {
                   input.nextLine();
 	System.out.println("\n\n\n\t\t\tWrong input! Please re-enter your choice!\n\n\n");

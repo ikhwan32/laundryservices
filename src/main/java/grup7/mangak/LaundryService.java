@@ -73,6 +73,7 @@ public class LaundryService extends PearlService {
              "\n\t\t\tIC Number = " + IC +
              "\n\t\t\tPhone Number = " + phoneNum +
              "\n\t\t\tLaundry Type = " + type +
+             "\n\t\t\tCloth Type = " + clothType +
              "\n\t\t\tCloth Quantity = " + quantity +
              "\n\t\t\tFee = RM " + calculateCharge()    );
     
